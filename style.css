@@ -1,0 +1,28 @@
+:root {
+    --primary-color-drk: rgb(54, 51, 51);
+    --sec-color-drk: rgb(18, 16, 16);
+
+    --primary-color-brg: rgb(248, 248, 248);
+    --sec-color-brg: rgb(190, 190, 190);
+
+    --fontsize-sm: 0.6rem;
+    --fontsize-rg: 0.9rem;
+    --fontsize-lg: 1.2rem;
+    --fontsize-xl: 1.5rem;
+
+    --spacing-sm: 0.6rem;
+    --spacing-rg: 0.9rem;
+    --spacing-lg: 1.2rem;
+    --spacing-xl: 1.5rem;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    background: linear-gradient(60deg, rgba(56,55,69,1) 48%, rgba(82,106,97,1) 100%);
+}
