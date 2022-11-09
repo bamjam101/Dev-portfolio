@@ -70,6 +70,11 @@ nav ul a,
     transition: color 0.45s;
 }
 
+.nav-logo-div a img {
+    height: 3rem;
+    width: 3rem;
+}
+
 nav ul a:hover {
     color: var(--primary-color-brg);
 }
@@ -92,6 +97,69 @@ nav ul a li:hover::after{
 .link {
     text-decoration: none;
     color: inherit;
+}
+
+/* ---Mobile-nav-style--- */
+
+.mobile-nav {
+    position: fixed;
+    top: 10%;
+    right: 0;
+    height: 80%;
+    width: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.mobile-nav ul {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mobile-nav ul a {
+    display: grid;
+    place-items: center;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-rg);
+    line-height: var(--spacing-xl);
+    text-decoration: none;
+    color: inherit;
+    margin: var(--spacing-xl) 0;
+    transition: color 0.45s;
+}
+
+.mobile-nav ul a li .icon {
+    font-size: var(--fontsize-xl);
+}
+
+.mobile-nav ul a:hover {
+    color: tomato;
+}
+
+.mobile-nav ul a label {
+    writing-mode: vertical-rl;
+    opacity: 0;
+    font-size: var(--fontsize-lg);
+    transition: opacity 0.45s;
+}
+
+.mobile-nav ul a:hover label {
+    opacity: 1;
+}
+
+.mobile-nav ul a li {
+    list-style: none;
+}
+
+.mobile-nav {   
+    display: none;
 }
 
 /* ---Setup-styles--- */
@@ -155,7 +223,7 @@ body>main .compress {
     overflow: hidden;
     padding: var(--spacing-sm);
     border-bottom: 1px solid var(--sec-color-brg);
-    transition: 0.5s;
+    transition: 0.45s;
 }
 
 #intro .animated-me:hover {
@@ -733,7 +801,7 @@ main .about-div .about-details-div {
 }
 
 
-@media (width<980px) {
+@media (width<980px){
     html {
         font-size: 90%;
     }
@@ -743,6 +811,20 @@ main .about-div .about-details-div {
 
     .nav-right-div ul {
         display: none;
+    }
+
+    .mobile-nav {
+        display: block;
+    }
+
+    body>nav {
+        position: fixed;
+        left: 0;
+        top: 0;
+    }
+
+    main {
+        width: 85%;
     }
 
     body>main .compress {
@@ -813,12 +895,13 @@ main .about-div .about-details-div {
     html {
         font-size: 80%;
     }
-    .nav-mid-div ul {
-        display: none;
+
+    .mobile-nav {
+        width: 15%;
     }
 
-    .nav-right-div ul {
-        display: none;
+    .mobile-nav ul a {
+        gap: var(--spacing-sm);
     }
 
     body>main .compress {
@@ -897,6 +980,6 @@ main .about-div .about-details-div {
 
     .scroll-top {
         right: 5%;
-        bottom: 12%;
+        bottom: 5%;
     }
 }
