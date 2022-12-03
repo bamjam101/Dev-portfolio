@@ -456,6 +456,8 @@ main .about-div .about-details-div {
 
 .miniproject-card {
     position: absolute;
+    height: 17vh;
+    width: 14vh;
     border-top-left-radius: var(--spacing-lg);
     border-top-right-radius: var(--spacing-lg);
 }
