@@ -40,9 +40,9 @@ body {
 
 /* ---Nav-styles--- */
 body>nav {
-    position: sticky;
+    position: fixed;
     top: 0;
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
     height: 7vh;
     overflow: hidden;
@@ -50,6 +50,7 @@ body>nav {
     place-items: center;
     grid-template-columns: 1fr 1fr 1fr;
     z-index: 999;
+    background-color: rgb(26, 19, 19);
     border: 2px solid transparent;
     transition: border 0.45s;
 }
@@ -405,14 +406,10 @@ main .about-div .about-details-div {
     font-size: var(--fontsize-sm);
 }
 
+
 .project-card .project-img {
     position: relative;
-    height: 70%;
-    width: 100%;
     overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .project-card .project-img p,
@@ -432,7 +429,7 @@ main .about-div .about-details-div {
 }
 
 .project-img img {
-    background-size: cover;
+    object-fit: contain;
     height: 100%;
     width: 100%;
     transition: opacity 0.45s, transform 0.45s;
@@ -443,19 +440,34 @@ main .about-div .about-details-div {
 .project-card:nth-child(1) {
     background-color: #222129;
     transform: rotate(-3deg);
-    z-index: 99;
+    z-index: 200;
     transition: transform 0.6s, box-shadow 0.45s;
 }
 
 .project-card:nth-child(2) {
     background-color: #1c1c23;
-    transform: translateX(2rem) translateY(-1rem) rotate(5deg);
-    z-index: 999;
+    transform: translateX(2rem) translateY(1rem) rotate(5deg);
+    z-index: 200;
+    transition: transform 0.6s, box-shadow 0.45s;
+}
+
+.project-card:nth-child(3) {
+    background-color: #1c1c23;
+    transform: translateX(1rem) translateY(1rem) rotate(8deg);
+    z-index: 200;
+    transition: transform 0.6s, box-shadow 0.45s;
+}
+
+.project-card:nth-child(4) {
+    background-color: #1c1c23;
+    transform: translateX(2rem) translateY(1rem) rotate(10deg);
+    z-index: 200;
     transition: transform 0.6s, box-shadow 0.45s;
 }
 
 .miniproject-card {
     position: absolute;
+    transform: translateX(10rem) translateY(-10rem);
     height: 17vh;
     width: 14vh;
     border-top-left-radius: var(--spacing-lg);
@@ -479,7 +491,7 @@ main .about-div .about-details-div {
 
 .miniproject-card .miniproject-img {
     position: relative;
-    height: 70%;
+    height: 100%;
     width: 100%;
     overflow: hidden;
     display: flex;
@@ -488,7 +500,7 @@ main .about-div .about-details-div {
 }
 
 .miniproject-img img {
-    background-size: cover;
+    object-fit: contain;
     height: 100%;
     width: 100%;
     transition: opacity 0.45s, transform 0.45s;
@@ -496,7 +508,7 @@ main .about-div .about-details-div {
     border-top-right-radius: var(--spacing-lg);
 }
 
-.miniproject-card:nth-child(3) {
+.miniproject-card {
     background-color: #272730;
     transform: translate(7rem, 2rem) rotate(30deg);
     z-index: 599;
@@ -510,15 +522,23 @@ main .about-div .about-details-div {
 }
 
 .projects-container:hover .project-card:nth-child(1) {
-    transform: translate(-5rem, 2rem) rotate(-30deg);
+    transform: translate(-8rem, -2rem) rotate(-20deg);
 }
 
 .projects-container:hover .project-card:nth-child(2) {
-    transform: translate(12rem, 1rem) rotate(20deg);
+    transform: translate(18rem, 3rem) rotate(30deg);
 }
 
-.projects-container:hover .miniproject-card:nth-child(3) {
-    transform: translate(3rem, -8rem) rotate(10deg);
+.projects-container:hover .project-card:nth-child(3) {
+    transform: translate(8rem, -2rem) rotate(20deg);
+}
+
+.projects-container:hover .project-card:nth-child(4) {
+    transform: translate(-18rem, 3rem) rotate(-30deg);
+}
+
+.projects-container:hover .miniproject-card {
+    transform: translate(0, -9rem);
 }
 
 .project-card:nth-child(1):hover {
@@ -529,7 +549,11 @@ main .about-div .about-details-div {
     box-shadow: 0 0 20px rgba(43, 37, 37), 0 0 30px rgba(43, 37, 37), 0 0 40px rgba(43, 37, 37);
 }
 
-.miniproject-card:nth-child(3):hover {
+.project-card:nth-child(3):hover {
+    box-shadow: 0 0 20px rgb(60, 55, 55), 0 0 30px rgb(60, 55, 55), 0 0 40px rgb(60, 55, 55);
+}
+
+.miniproject-card:hover {
     box-shadow: 0 0 20px rgb(60, 55, 55), 0 0 30px rgb(60, 55, 55), 0 0 40px rgb(60, 55, 55);
 }
 
@@ -790,7 +814,7 @@ main .about-div .about-details-div {
     #projects .projects-container {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: auto;
-        row-gap: var(--spacing-lg);
+        row-gap: var(--spacing-xl);
     }
 
     .project-card,
@@ -804,15 +828,17 @@ main .about-div .about-details-div {
 
     .project-card:nth-child(1),
     .project-card:nth-child(2),
-    .miniproject-card:nth-child(3),
-    .miniproject-card:nth-child(4) {
+    .project-card:nth-child(3),
+    .project-card:nth-child(4),
+    .miniproject-card {
         transform: none;
     }
 
     .projects-container:hover .project-card:nth-child(1),
     .projects-container:hover .project-card:nth-child(2),
-    .projects-container:hover .miniproject-card:nth-child(3),
-    .projects-container:hover .miniproject-card:nth-child(4) {
+    .projects-container:hover .project-card:nth-child(3),
+    .projects-container:hover .project-card:nth-child(4),
+    .projects-container:hover .miniproject-card {
         transform: none;
     }
 
@@ -854,6 +880,10 @@ main .about-div .about-details-div {
         display: block;
     }
 
+    .desc {
+        display: none;
+    }
+
     body>nav {
         position: fixed;
         left: 0;
@@ -881,7 +911,7 @@ main .about-div .about-details-div {
     #projects .projects-container {
         grid-template-columns: 1fr;
         grid-template-rows: auto;
-        row-gap: var(--spacing-lg);
+        row-gap: var(--spacing-xl);
     }
 
     .project-card,
@@ -895,15 +925,17 @@ main .about-div .about-details-div {
 
     .project-card:nth-child(1),
     .project-card:nth-child(2),
-    .miniproject-card:nth-child(3),
-    .miniproject-card:nth-child(4) {
+    .project-card:nth-child(3),
+    .project-card:nth-child(4),
+    .miniproject-card {
         transform: none;
     }
 
     .projects-container:hover .project-card:nth-child(1),
     .projects-container:hover .project-card:nth-child(2),
-    .projects-container:hover .miniproject-card:nth-child(3),
-    .projects-container:hover .miniproject-card:nth-child(4) {
+    .projects-container:hover .project-card:nth-child(3),
+    .projects-container:hover .project-card:nth-child(4),
+    .projects-container:hover .miniproject-card {
         transform: none;
     }
 
@@ -989,15 +1021,17 @@ main .about-div .about-details-div {
 
     .project-card:nth-child(1),
     .project-card:nth-child(2),
-    .miniproject-card:nth-child(3),
-    .miniproject-card:nth-child(4) {
+    .project-card:nth-child(3),
+    .project-card:nth-child(4),
+    .miniproject-card {
         transform: none;
     }
 
     .projects-container:hover .project-card:nth-child(1),
     .projects-container:hover .project-card:nth-child(2),
-    .projects-container:hover .miniproject-card:nth-child(3),
-    .projects-container:hover .miniproject-card:nth-child(4) {
+    .projects-container:hover .project-card:nth-child(3),
+    .projects-container:hover .project-card:nth-child(4),
+    .projects-container:hover .miniproject-card {
         transform: none;
     }
 
